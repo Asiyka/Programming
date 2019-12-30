@@ -1,10 +1,11 @@
 from tkinter import *
-
+from def_prys
 PROG_ONE=["Вобліков Георгій","Боднар Анастасія","Мірва Данило","Asiyka","Asiyka","Asiyka","Угорь","Asiyka","Asiyka","Asiyka","Угорь","Asiyka","Asiyka"]
 PROG_TWO=['gergrfg','ewrferf']
 WEB=['ergregwer','ryiwnfd']
 PROG_OSN=['etujrtht','retfyhrtuh']
 OS_KT=['ruy54yer','t46rqytq64']
+DATA=['25.12','26.12','27.12','28.12']
 root = Tk()
 var=IntVar()
 variable_progone = StringVar()
@@ -22,8 +23,12 @@ variable_progosn.set(PROG_OSN[0])
 variable_kt = StringVar()
 variable_kt.set(OS_KT[0])
 
+variable_data = StringVar()
+variable_data.set(DATA[0])
+
 def send_func(event):
-    print('тіпа сенд')
+    print('тіпа сенд') 
+    
 def green_func(event):
     kt.pack_forget()
     web.pack_forget()
@@ -189,7 +194,6 @@ okt.place(x=525,y=5)
 progone = Label(toolbox,bg="#FFFFFF",fg="black",text="Основи КТ",font='arial 11')
 progone.place(x=535,y=105)
 
-
 #hardskill menu
 hardskillshadow = Frame(root,bg="#535353",bd=2,height=330,width=200)
 hardskillshadow.place(x=0,y=155)
@@ -278,11 +282,11 @@ send.bind("<Button-1>",send_func)
 send.place(x=17,y=265)
 
 #softmenu
-hardskillshadow = Frame(root,bg="#535353",bd=2,height=330,width=220)
+hardskillshadow = Frame(root,bg="#535353",bd=2,height=300,width=220)
 hardskillshadow.place(x=225,y=155)
 
 softskill = Frame(root,bg="#FFFFFF",bd=2,height=100,width=100)
-softskill.pack(padx=30,ipady=126,ipadx=23,pady=10)
+softskill.pack(padx=30,ipady=106,ipadx=23,pady=10)
 
 km = Label(softskill,width=17,bg="#FFFFFF",fg="black",text="Критичне мислення",font='arial 13')
 km.pack()
@@ -319,7 +323,14 @@ cwsmpoint.place(x=40,y=220)
 
 sendsm = Button(softskill,width=20, bg="#BED371", text="Send")
 sendsm.bind("<Button-1>",send_func)
-sendsm.place(x=27,y=265)
+sendsm.place(x=27,y=255)
+
+menu_prog_data=OptionMenu(root,variable_data,*DATA)#буде мінятися
+menu_prog_data.place(x=235,y=457.5)
+
+view = Button(root,width=16, bg="#FFCF77", text="Подив. Присутність")
+view.bind("<Button-1>",view_func)
+view.place(x=315,y=459)
 
 root.title("SoVA")
 root["bg"] = "#A580D8"
